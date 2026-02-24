@@ -1,0 +1,2 @@
+export const URL_API = "https://lmodxsxfquuqsabpirpv.supabase.co/rest/v1"
+export const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imxtb2R4c3hmcXV1cXNhYnBpcnB2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE4Mjg3MDEsImV4cCI6MjA4NzQwNDcwMX0.jUl9TvnhyTjY3OgLZ4jPKJqtDLE3I_P8yEvTE9c1FXA'
