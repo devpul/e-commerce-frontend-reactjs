@@ -2,6 +2,7 @@ import Layout from '@/components/Layout'
 import React, { useState } from 'react'
 import { URL_API, API_KEY } from '@/utils/index'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 
 export default function Register() {
 
@@ -12,6 +13,8 @@ export default function Register() {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
 
+    const router = useRouter()
+
     const handleForm = async () => {
         const dataRegister = {
             nama,
@@ -19,11 +22,16 @@ export default function Register() {
             password
         }
 
-        console.log("Data Register: ", dataRegister)
+        // validasi
+        if (!nama || !email || !password) {
+            return alert("Mohon lengkapi form")
+        }
 
-        // selanjutnya API
+
+        console.log("Data Register: ", dataRegister)
         setLoading(true)
 
+        // axios / kurir
         try {
             const response = await axios.post(
                 
@@ -41,11 +49,15 @@ export default function Register() {
                     }
                 }
             );
-            setLoading(false)
+            
             console.log('Berhasil : ', response)
+            setLoading(false)
+
+            router.push('/')
+
         } catch (error) {
             setLoading(false)
-            setError(error.response.data.message)
+            setError(error.response.data?.message)
             console.log("Terjadi kesalahan", error.response.data.message)
         }
     }
