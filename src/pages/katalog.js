@@ -44,7 +44,7 @@ export default function katalog() {
     
     return (
         <Layout>
-            <div className='px-14'>
+            <div className='px-14 mt-10'>
                 <p className='text-2xl font-bold text-center'>Katalog Produk</p>
 
                 {/* <button 
@@ -55,7 +55,7 @@ export default function katalog() {
                 className="px-5 py-2 bg-red-500 text-white"
                 onClick={() => setLampu("mati")}>Lampu Mati</button> */}
 
-                <div className='grid md:grid-cols-3 gap-5'>
+                <div className='grid md:grid-cols-3 gap-5 mt-5'>
                     {dataProducts && dataProducts.map((product, index) => {
                         return (
                             <CardProduct key={index} product={product} />
