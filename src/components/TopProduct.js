@@ -8,7 +8,7 @@ export default function TopProduct() {
         <p className="font-bold text-4xl">Top Products</p>
       </div>
 
-      <div className="flex gap-12 mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-4 ">
         <div className="border border-[#787878] rounded-2xl p-4">
           <img src="gambar/produk1.png" className="rounded-xl" />
           <p className="text-3xl font-light mt-4">JEANS</p>
