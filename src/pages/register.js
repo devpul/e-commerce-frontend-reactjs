@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import { URL_API, API_KEY } from '@/utils/index'
 import axios from 'axios'
 import { useRouter } from 'next/router'
+import { useDispatch } from 'react-redux'
+import { setUser } from '@/redux/userSlice'
 
 export default function Register() {
 
@@ -12,6 +14,7 @@ export default function Register() {
     const [password, setPassword] = useState("")
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
+    const dispatch = useDispatch()
 
     const router = useRouter()
 
@@ -51,6 +54,7 @@ export default function Register() {
             );
             
             console.log('Berhasil : ', response)
+            dispatch(setUser(nama))
             setLoading(false)
 
             router.push('/')
