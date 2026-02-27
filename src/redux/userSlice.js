@@ -12,10 +12,15 @@ const userSlice = createSlice({
 
       // simpan di local storage
       localStorage.setItem('namaUser', action.payload)
+    },
+    logout: (state, action) => {
+      // hapus semua data di redux & local storage
+      state.namaUser = ""
+      localStorage.clear()
     }
   }
 })
 
-export const { setUser } = userSlice.actions
+export const { setUser, logout } = userSlice.actions
 
 export default userSlice.reducer

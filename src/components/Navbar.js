@@ -1,4 +1,4 @@
-import { setUser } from '@/redux/userSlice'
+import { logout, setUser } from '@/redux/userSlice'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -53,6 +53,7 @@ export default function Navbar() {
 					{/* <!-- di register ket : warna di bg ditukar dengan yang di text  --> */}
 					<button
 						className="border-2 border-red-500 bg-red-500 px-8 py-2 font-bold text-white rounded-xl"
+						onClick={() => dispatch(logout())}
 					>
 						Logout
 					</button>
