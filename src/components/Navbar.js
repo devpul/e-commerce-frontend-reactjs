@@ -1,16 +1,27 @@
+import { setUser } from '@/redux/userSlice'
 import Link from 'next/link'
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 export default function Navbar() {
-
   const [tampil, setTampil] = useState(false)
-
   const namaUser = useSelector((state) => state.users.namaUser)
   console.log("Nama User: ", namaUser)
 
+	const dispatch = useDispatch()
+
+  	useEffect(() => {
+		const ambilDataDariLocalStorage = localStorage.getItem('namaUser');
+		console.log('Data yang diambil: ', ambilDataDariLocalStorage);
+
+		if (ambilDataDariLocalStorage) {
+			dispatch(setUser(ambilDataDariLocalStorage))
+		}
+
+ 	}, [])
+
+
   return (
-    
 	<div className='flex flex-col'>
 		{/* Navbar */}
 		<div className="flex justify-between px-14 py-4 items-center">
