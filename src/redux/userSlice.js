@@ -7,7 +7,11 @@ const userSlice = createSlice({
   },
   reducers: {
     setUser: (state, action) => {
+      // simpan di redux
       state.namaUser = action.payload
+
+      // simpan di local storage
+      localStorage.setItem('namaUser', action.payload)
     }
   }
 })
